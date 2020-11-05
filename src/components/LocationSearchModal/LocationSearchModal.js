@@ -54,6 +54,9 @@ export const LocationSearchModal = () => {
         <LocationInput />
         <SearchResultWrapper>
           <SearchResult />
+          <SearchResult />
+          <SearchResult />
+          <SearchResult />
         </SearchResultWrapper>
       </ModalWrapper>
     </Wrapper>

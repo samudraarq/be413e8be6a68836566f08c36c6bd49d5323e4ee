@@ -6,6 +6,7 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 4.8rem 1fr;
   align-items: center;
+  margin-top: 1.6rem;
 `;
 
 const IconWrapper = styled.div`
