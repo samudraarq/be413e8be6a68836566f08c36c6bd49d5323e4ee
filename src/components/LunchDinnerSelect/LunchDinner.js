@@ -6,11 +6,12 @@ const Wrapper = styled.div`
   position: fixed;
   top: 8.8rem;
   z-index: 5;
-  left: 0;
-  width: 100%;
+  left: 50%;
+  max-width: 37.5rem;
+  width: 100vw;
   background: #fff;
   transform: ${(props) =>
-    props.downScroll ? "translateY(0)" : "translateY(-100%)"};
+    props.downScroll ? "translate(-50%, 0)" : "translate(-50%, -100%)"};
   transition: all 0.5s ease;
 `;
 

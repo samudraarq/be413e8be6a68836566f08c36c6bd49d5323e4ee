@@ -8,10 +8,12 @@ import { CartContext } from "../Context/CartContext";
 const Wrapper = styled.div`
   position: fixed;
   bottom: 0;
-  left: 0;
-  right: 0;
+  left: 50%;
+  max-width: 37.5rem;
+  width: 100vw;
   z-index: 5;
-  transform: ${(props) => (props.show ? "translateY(0)" : "translateY(100%)")};
+  transform: ${(props) =>
+    props.show ? "translate(-50%, 0)" : "translate(-50%, 100%)"};
   transition: all 0.5s ease;
   background: linear-gradient(
     rgba(255, 255, 255, 0) 0%,
