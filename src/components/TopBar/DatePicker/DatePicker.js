@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { subDays, format, addDays } from "date-fns";
+import { subDays, format, addDays, isSameDay, isWeekend } from "date-fns";
 import { useState } from "react";
 
 const Wrapper = styled.div`
@@ -8,21 +8,44 @@ const Wrapper = styled.div`
 
 const DateWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(14, calc(15% - 0.4rem));
-  overflow-x: auto;
   justify-items: center;
-  padding: 0 0.8rem;
+  grid-template-columns: 0.8rem repeat(14, calc(15% - 0.4rem)) 0.8rem;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  margin: 0.4rem 0;
+
+  &::before,
+  &::after {
+    content: "";
+  }
 `;
 
 const DateItemsWrapper = styled.div`
-  text-align: center;
+  display: flex;
+  scroll-snap-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: ${(props) => props.selected && "#424749"};
+  color: ${(props) =>
+    props.selected ? "#ffffff" : props.weekend && "#e2e4e4"};
+  height: 4rem;
+  width: 4rem;
+  border-radius: 50%;
+`;
+
+const DateItem = styled.p`
+  font-size: 1.2rem;
+  font-weight: 700;
 `;
 
 const DatePicker = () => {
-  const [currentWeek, setCurrentWeek] = useState(new Date());
-  const [currentDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const currentWeek = new Date();
 
   const enableDays = 14;
+
+  console.log(selectedDate);
 
   const _verticalList = () => {
     const _dayFormat = "E";
@@ -35,14 +58,29 @@ const DatePicker = () => {
       let _date = format(addDays(_startDay, i), _dateFormat);
 
       _verticalListItems.push(
-        <DateItemsWrapper>
-          <div className="datepicker-day-label ">{_day}</div>
-          <div className="datepicker-date-label ripple ">{_date}</div>
-        </DateItemsWrapper>
+        isWeekend(addDays(_startDay, i)) ? (
+          <DateItemsWrapper weekend key={i}>
+            <div>{_day}</div>
+            <DateItem>{_date}</DateItem>
+          </DateItemsWrapper>
+        ) : (
+          <DateItemsWrapper
+            onClick={() => onDateClick(addDays(_startDay, i))}
+            selected={isSameDay(addDays(_startDay, i), selectedDate)}
+            key={i}
+          >
+            <div>{_day}</div>
+            <DateItem>{_date}</DateItem>
+          </DateItemsWrapper>
+        )
       );
     }
 
     return _verticalListItems;
+  };
+
+  const onDateClick = (day) => {
+    setSelectedDate(day);
   };
 
   return (
