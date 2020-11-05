@@ -12,6 +12,7 @@ const Wrapper = styled.div`
 const MenusDate = styled.p`
   font-size: 1.2rem;
   font-weight: 700;
+  margin-top: 2.4rem;
 `;
 
 const MenuCards = () => {

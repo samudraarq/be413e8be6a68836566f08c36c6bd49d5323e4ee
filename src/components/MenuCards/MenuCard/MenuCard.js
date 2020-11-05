@@ -43,7 +43,30 @@ const CardSubtitle = styled.p`
   margin-top: 0.8rem;
 `;
 
+const PriceButtonWrapper = styled.div`
+  margin-top: 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const CardPrice = styled.p`
+  font-size: 1.2rem;
+`;
+
+const ButtonAdd = styled.button`
+  background: #f9423a;
+  border: none;
+  border-radius: 0.4rem;
+  color: #fff;
+  height: 2.8rem;
+  width: 8rem;
+  cursor: pointer;
+`;
+
 const MenuCard = ({ menu }) => {
+  const menuPrice = new Intl.NumberFormat("en-EN").format(menu.price);
+
   return (
     <CardWrapper>
       <CardImg src={menu.image_url} alt="menu" />
@@ -54,6 +77,10 @@ const MenuCard = ({ menu }) => {
         </RatingWrapper>
         <CardTitle>{menu.title}</CardTitle>
         <CardSubtitle>by Kulina &bull; Uptown Kitchen</CardSubtitle>
+        <PriceButtonWrapper>
+          <CardPrice>Rp. {menuPrice}</CardPrice>
+          <ButtonAdd>ADD +</ButtonAdd>
+        </PriceButtonWrapper>
       </ContentWrapper>
     </CardWrapper>
   );

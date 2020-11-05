@@ -20,7 +20,7 @@ const LunchDinner = () => {
   useEffect(() => {
     const handleScroll = () => {
       var st = window.scrollY;
-      if (st > lastScroll || st <= 20) {
+      if (st > lastScroll || st <= 0) {
         setDownScroll(true);
       } else {
         setDownScroll(false);
