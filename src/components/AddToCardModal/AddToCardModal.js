@@ -46,13 +46,27 @@ const IconWrapper = styled.div`
 const AddToCardModal = () => {
   const { cartAmount, totalPrice } = useContext(CartContext);
 
+  const renderCartAmount = () => {
+    const menuPrice = new Intl.NumberFormat("en-EN").format(totalPrice);
+    let amount = "";
+    if (cartAmount <= 1) {
+      amount = "1 Item";
+    } else {
+      amount = cartAmount + " Items";
+    }
+
+    return (
+      <ItemPrice>
+        {amount} | Rp. {menuPrice}
+      </ItemPrice>
+    );
+  };
+
   return (
     <Wrapper>
       <ModalWrapper>
         <div>
-          <ItemPrice>
-            {cartAmount} Items | Rp {totalPrice}
-          </ItemPrice>
+          {renderCartAmount()}
           <DeliveryPrice>Termasuk ongkos kirim</DeliveryPrice>
         </div>
         <IconWrapper>
