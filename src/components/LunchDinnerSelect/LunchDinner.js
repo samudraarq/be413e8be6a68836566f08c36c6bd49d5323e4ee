@@ -6,6 +6,7 @@ const Wrapper = styled.div`
   position: fixed;
   top: 8.8rem;
   z-index: 5;
+  left: 0;
   width: 100%;
   background: #fff;
   transform: ${(props) =>
