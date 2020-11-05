@@ -58,8 +58,6 @@ const DatePicker = () => {
 
   const enableDays = 14;
 
-  console.log(selectedDate);
-
   const _verticalList = () => {
     const _dayFormat = "E";
     const _dateFormat = "dd";
