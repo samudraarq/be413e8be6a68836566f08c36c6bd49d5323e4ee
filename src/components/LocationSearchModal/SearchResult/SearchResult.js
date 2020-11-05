@@ -21,6 +21,8 @@ const IconWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
+  margin-bottom: 1.6rem;
+
   & svg {
     color: #e2e4e4;
     font-size: 2rem;
@@ -48,18 +50,15 @@ const Address = styled.p`
   overflow: hidden;
 `;
 
-const SearchResult = () => {
+const SearchResult = ({ place }) => {
   return (
     <Wrapper>
       <IconWrapper>
         <LocationOnIcon />
       </IconWrapper>
       <ContentWrapper>
-        <Location>Kulina</Location>
-        <Address>
-          Gedung Kulina Lt. 3, Jalan Tulodong Atas No. 28, Senayan, Kebayoran
-          Baru, Jakarta Selatan, DKI Jakarta 12190, Indonesia
-        </Address>
+        <Location>{place.name}</Location>
+        <Address>{place.address}</Address>
       </ContentWrapper>
     </Wrapper>
   );

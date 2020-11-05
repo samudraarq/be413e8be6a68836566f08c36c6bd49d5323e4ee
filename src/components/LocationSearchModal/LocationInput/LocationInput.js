@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 import LocationOnIcon from "@material-ui/icons/LocationOn";
+import { useContext } from "react";
+import { LocationContext } from "../../Context/LocationContext";
 
 const InputWrapper = styled.div`
   position: relative;
@@ -27,10 +29,12 @@ const Input = styled.input`
 `;
 
 const LocationInput = () => {
+  const { setInputText } = useContext(LocationContext);
+
   return (
     <InputWrapper>
       <LocationOnIcon />
-      <Input />
+      <Input onChange={(e) => setInputText(e.target.value)} />
     </InputWrapper>
   );
 };

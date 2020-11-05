@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import AddToCartModal from "./components/AddToCartModal/AddToCartModal";
 import CartContextProvider from "./components/Context/CartContext";
+import LocationContextProvider from "./components/Context/LocationContext";
 import { LocationSearchModal } from "./components/LocationSearchModal/LocationSearchModal";
 import LunchDinner from "./components/LunchDinnerSelect/LunchDinner";
 import MenuCards from "./components/MenuCards/MenuCards";
@@ -17,13 +18,15 @@ const MobileSize = styled.div`
 function App() {
   return (
     <CartContextProvider>
-      <MobileSize>
-        <TopBar />
-        <LunchDinner />
-        <MenuCards />
-        <AddToCartModal />
-        <LocationSearchModal />
-      </MobileSize>
+      <LocationContextProvider>
+        <MobileSize>
+          <TopBar />
+          <LunchDinner />
+          <MenuCards />
+          <AddToCartModal />
+          <LocationSearchModal />
+        </MobileSize>
+      </LocationContextProvider>
     </CartContextProvider>
   );
 }

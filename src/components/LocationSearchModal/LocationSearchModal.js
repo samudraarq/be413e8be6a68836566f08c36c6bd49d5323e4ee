@@ -3,6 +3,8 @@ import styled from "styled-components";
 import CloseIcon from "@material-ui/icons/Close";
 import LocationInput from "./LocationInput/LocationInput";
 import SearchResult from "./SearchResult/SearchResult";
+import { useContext } from "react";
+import { LocationContext } from "../Context/LocationContext";
 
 const Wrapper = styled.div`
   position: fixed;
@@ -44,6 +46,12 @@ const SearchResultWrapper = styled.div`
 `;
 
 export const LocationSearchModal = () => {
+  const { data } = useContext(LocationContext);
+
+  const renderResult = data.map((place) => (
+    <SearchResult key={place.id} place={place} />
+  ));
+
   return (
     <Wrapper>
       <ModalWrapper>
@@ -52,12 +60,7 @@ export const LocationSearchModal = () => {
         </CloseIconWrapper>
         <Title>Cek makanan yang tersedia di lokasi kamu!</Title>
         <LocationInput />
-        <SearchResultWrapper>
-          <SearchResult />
-          <SearchResult />
-          <SearchResult />
-          <SearchResult />
-        </SearchResultWrapper>
+        <SearchResultWrapper>{renderResult}</SearchResultWrapper>
       </ModalWrapper>
     </Wrapper>
   );
