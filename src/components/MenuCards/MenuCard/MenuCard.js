@@ -62,6 +62,7 @@ const ButtonAdd = styled.button`
   height: 2.8rem;
   width: 8rem;
   cursor: pointer;
+  outline: none;
 `;
 
 const MenuCard = ({ menu }) => {

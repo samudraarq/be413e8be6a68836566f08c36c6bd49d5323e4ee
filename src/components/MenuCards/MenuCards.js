@@ -7,6 +7,7 @@ import MenuCard from "./MenuCard/MenuCard";
 
 const Wrapper = styled.div`
   padding-top: 13.7rem;
+  padding-bottom: 5rem;
 `;
 
 const MenusDate = styled.p`
@@ -97,7 +98,7 @@ const MenuCards = () => {
       <MenusDate>{format(data.date, dayFormat, { locale: id })}</MenusDate>
 
       {data.menu.map((menu) => (
-        <MenuCard menu={menu} />
+        <MenuCard menu={menu} key={menu.id} />
       ))}
     </div>
   ));
