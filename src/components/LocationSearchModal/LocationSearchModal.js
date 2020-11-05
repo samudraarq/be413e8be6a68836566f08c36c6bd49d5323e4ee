@@ -1,9 +1,10 @@
+import { useContext } from "react";
+
 import styled from "styled-components";
 
 import CloseIcon from "@material-ui/icons/Close";
 import LocationInput from "./LocationInput/LocationInput";
 import SearchResult from "./SearchResult/SearchResult";
-import { useContext } from "react";
 import { LocationContext } from "../Context/LocationContext";
 
 const Wrapper = styled.div`
@@ -16,6 +17,9 @@ const Wrapper = styled.div`
   transform: translateX(-50%);
   z-index: 10;
   background: rgba(0, 0, 0, 0.5);
+
+  opacity: ${(props) => (props.modalOpen ? "1" : "0")};
+  visibility: ${(props) => (props.modalOpen ? "visible" : "hidden")};
 `;
 
 const ModalWrapper = styled.div`
@@ -26,6 +30,11 @@ const ModalWrapper = styled.div`
   height: 80vh;
   border-radius: 0.8rem 0.8rem 0 0;
   padding: 0.8rem 1.2rem;
+
+  transform: ${(props) =>
+    props.modalOpen ? "translateY(0)" : "translateY(100%)"};
+
+  transition: all 0.5s ease-in-out;
 `;
 
 const CloseIconWrapper = styled.div`
@@ -46,17 +55,17 @@ const SearchResultWrapper = styled.div`
 `;
 
 export const LocationSearchModal = () => {
-  const { data } = useContext(LocationContext);
+  const { data, setModalOpen, modalOpen } = useContext(LocationContext);
 
   const renderResult = data.map((place) => (
     <SearchResult key={place.id} place={place} />
   ));
 
   return (
-    <Wrapper>
-      <ModalWrapper>
+    <Wrapper modalOpen={modalOpen}>
+      <ModalWrapper modalOpen={modalOpen}>
         <CloseIconWrapper>
-          <CloseIcon />
+          <CloseIcon onClick={() => setModalOpen(false)} />
         </CloseIconWrapper>
         <Title>Cek makanan yang tersedia di lokasi kamu!</Title>
         <LocationInput />

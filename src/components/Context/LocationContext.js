@@ -4,6 +4,7 @@ export const LocationContext = createContext();
 
 const LocationContextProvider = ({ children }) => {
   const [inputText, setInputText] = useState("");
+  const [modalOpen, setModalOpen] = useState(true);
 
   let data = [];
 
@@ -31,7 +32,9 @@ const LocationContextProvider = ({ children }) => {
   }
 
   return (
-    <LocationContext.Provider value={{ setInputText, data }}>
+    <LocationContext.Provider
+      value={{ setInputText, data, setModalOpen, modalOpen }}
+    >
       {children}
     </LocationContext.Provider>
   );

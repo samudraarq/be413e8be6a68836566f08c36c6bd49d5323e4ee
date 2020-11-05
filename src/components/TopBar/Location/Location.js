@@ -4,6 +4,8 @@ import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import Container from "../../UI/Container";
+import { useContext } from "react";
+import { LocationContext } from "../../Context/LocationContext";
 
 const Wrapper = styled.div`
   display: grid;
@@ -31,13 +33,15 @@ const LocationSelect = styled.p`
 `;
 
 const Location = () => {
+  const { setModalOpen } = useContext(LocationContext);
+
   return (
     <Container>
       <Wrapper>
         <KeyboardBackspaceIcon style={{ fontSize: "2rem" }} />
         <div>
           <LocationTitle>Alamat pengantaran</LocationTitle>
-          <LocationSelectWrapper>
+          <LocationSelectWrapper onClick={() => setModalOpen(true)}>
             <LocationSelect>Tokopedia Tower</LocationSelect>
             <ExpandMoreIcon style={{ color: "#f9423a", fontSize: "1.6rem" }} />
           </LocationSelectWrapper>
