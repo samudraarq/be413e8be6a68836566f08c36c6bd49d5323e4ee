@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import LunchDinnerSelect from "./components/LunchDinnerSelect/LunchDinnerSelect";
+import LunchDinner from "./components/LunchDinnerSelect/LunchDinner";
 import TopBar from "./components/TopBar/TopBar";
 
 const MobileSize = styled.div`
@@ -11,7 +11,7 @@ function App() {
   return (
     <MobileSize>
       <TopBar />
-      <LunchDinnerSelect />
+      <LunchDinner />
     </MobileSize>
   );
 }
