@@ -7,6 +7,8 @@ import LocationInput from "./LocationInput/LocationInput";
 import SearchResult from "./SearchResult/SearchResult";
 import { LocationContext } from "../Context/LocationContext";
 
+import poweredByGoogle from "../../assets/powered_by_google_on_white.png";
+
 const Wrapper = styled.div`
   position: fixed;
   top: 0;
@@ -55,6 +57,13 @@ const SearchResultWrapper = styled.div`
   margin-top: 2.4rem;
 `;
 
+const GoogleLogo = styled.img`
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+`;
+
 export const LocationSearchModal = () => {
   const { data, setModalOpen, modalOpen } = useContext(LocationContext);
 
@@ -71,6 +80,7 @@ export const LocationSearchModal = () => {
         <Title>Cek makanan yang tersedia di lokasi kamu!</Title>
         <LocationInput />
         <SearchResultWrapper>{renderResult}</SearchResultWrapper>
+        <GoogleLogo src={poweredByGoogle} alt="google" />
       </ModalWrapper>
     </Wrapper>
   );
