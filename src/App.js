@@ -1,5 +1,12 @@
+import styled from "styled-components";
+
+const MobileSize = styled.div`
+  max-width: 37.5rem;
+  margin: auto;
+`;
+
 function App() {
-  return <div className="App">Hello</div>;
+  return <MobileSize>Hello</MobileSize>;
 }
 
 export default App;
