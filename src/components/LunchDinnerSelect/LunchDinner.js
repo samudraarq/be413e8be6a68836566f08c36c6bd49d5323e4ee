@@ -3,8 +3,10 @@ import LunchDinnerSelect from "./LunchDinnerSelect";
 
 const Wrapper = styled.div`
   position: absolute;
-  top: 8.9rem;
+  top: 8.8rem;
+  z-index: 5;
   width: 100%;
+  background: #fff;
 `;
 
 const LunchDinner = () => {
