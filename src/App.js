@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import LunchDinner from "./components/LunchDinnerSelect/LunchDinner";
-import MenuCards from "./components/ManuCards/MenuCards";
+import MenuCards from "./components/MenuCards/MenuCards";
 import TopBar from "./components/TopBar/TopBar";
 
 const MobileSize = styled.div`

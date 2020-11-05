@@ -3,13 +3,15 @@ import { format, addDays } from "date-fns";
 import { id } from "date-fns/locale";
 
 import Container from "../UI/Container";
+import MenuCard from "./MenuCard/MenuCard";
 
 const Wrapper = styled.div`
   padding-top: 13.7rem;
 `;
 
 const MenusDate = styled.p`
-  font-size: 1.6rem;
+  font-size: 1.2rem;
+  font-weight: 700;
 `;
 
 const MenuCards = () => {
@@ -89,9 +91,13 @@ const MenuCards = () => {
     },
   ];
 
-  const renderMenu = menuData.map((menu) => (
-    <div key={menu.id}>
-      <MenusDate>{format(menu.date, dayFormat, { locale: id })}</MenusDate>
+  const renderMenu = menuData.map((data) => (
+    <div key={data.id}>
+      <MenusDate>{format(data.date, dayFormat, { locale: id })}</MenusDate>
+
+      {data.menu.map((menu) => (
+        <MenuCard menu={menu} />
+      ))}
     </div>
   ));
 

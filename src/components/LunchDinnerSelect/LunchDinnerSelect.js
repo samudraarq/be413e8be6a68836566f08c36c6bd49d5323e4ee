@@ -41,7 +41,13 @@ const LunchDinnerSelect = () => {
   return (
     <Container>
       <Wrapper>
-        <RadioBtn type="radio" name="time" id="lunch" value="lunch" checked />
+        <RadioBtn
+          type="radio"
+          name="time"
+          id="lunch"
+          value="lunch"
+          defaultChecked
+        />
         <RadioBtnLabel htmlFor="lunch">Lunch</RadioBtnLabel>
         <RadioBtn type="radio" name="time" id="dinner" value="dinner" />
         <RadioBtnLabel htmlFor="dinner">Dinner</RadioBtnLabel>
