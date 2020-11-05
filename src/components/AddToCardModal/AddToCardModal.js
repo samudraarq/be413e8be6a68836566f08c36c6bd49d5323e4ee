@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+
 const Wrapper = styled.div`
   position: fixed;
   bottom: 0;
@@ -14,17 +17,43 @@ const Wrapper = styled.div`
 `;
 
 const ModalWrapper = styled.div`
-  background: #f9423a;
+  background: #a23530;
   color: #fff;
   margin: 1.2rem;
   padding: 1.2rem;
   border-radius: 0.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const ItemPrice = styled.div`
+  font-size: 1.4rem;
+`;
+const DeliveryPrice = styled.p`
+  font-size: 1.2rem;
+  margin-top: 0.4rem;
+`;
+
+const IconWrapper = styled.div`
+  & svg {
+    font-size: 2.4rem;
+  }
 `;
 
 const AddToCardModal = () => {
   return (
     <Wrapper>
-      <ModalWrapper>5 Items | Rp 125000</ModalWrapper>
+      <ModalWrapper>
+        <div>
+          <ItemPrice>5 Items | Rp 125000</ItemPrice>
+          <DeliveryPrice>Termasuk ongkos kirim</DeliveryPrice>
+        </div>
+        <IconWrapper>
+          <ShoppingCartIcon />
+          <NavigateNextIcon />
+        </IconWrapper>
+      </ModalWrapper>
     </Wrapper>
   );
 };

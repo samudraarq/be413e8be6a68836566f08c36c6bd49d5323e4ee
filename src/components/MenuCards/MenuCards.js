@@ -7,7 +7,7 @@ import MenuCard from "./MenuCard/MenuCard";
 
 const Wrapper = styled.div`
   padding-top: 13.7rem;
-  padding-bottom: 5rem;
+  padding-bottom: 8rem;
 `;
 
 const MenusDate = styled.p`
