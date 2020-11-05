@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import TopBar from "./components/TopBar/TopBar";
 
 const MobileSize = styled.div`
   max-width: 37.5rem;
@@ -6,7 +7,11 @@ const MobileSize = styled.div`
 `;
 
 function App() {
-  return <MobileSize>Hello</MobileSize>;
+  return (
+    <MobileSize>
+      <TopBar />
+    </MobileSize>
+  );
 }
 
 export default App;
