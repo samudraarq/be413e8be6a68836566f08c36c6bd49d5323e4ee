@@ -3,7 +3,7 @@ import DatePicker from "./DatePicker/DatePicker";
 import Location from "./Location/Location";
 
 const Wrapper = styled.div`
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
