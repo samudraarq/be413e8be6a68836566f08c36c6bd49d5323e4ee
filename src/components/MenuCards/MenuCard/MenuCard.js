@@ -1,5 +1,9 @@
-import { Rating } from "@material-ui/lab";
+import { useContext } from "react";
 import styled from "styled-components";
+
+import { CartContext } from "../../Context/CartContext";
+
+import { Rating } from "@material-ui/lab";
 
 const CardWrapper = styled.div`
   border-radius: 0.8rem;
@@ -66,7 +70,13 @@ const ButtonAdd = styled.button`
 `;
 
 const MenuCard = ({ menu }) => {
+  const { addToCart } = useContext(CartContext);
+
   const menuPrice = new Intl.NumberFormat("en-EN").format(menu.price);
+
+  const clickHandler = () => {
+    addToCart(menu.price);
+  };
 
   return (
     <CardWrapper>
@@ -80,7 +90,7 @@ const MenuCard = ({ menu }) => {
         <CardSubtitle>by Kulina &bull; Uptown Kitchen</CardSubtitle>
         <PriceButtonWrapper>
           <CardPrice>Rp. {menuPrice}</CardPrice>
-          <ButtonAdd>ADD +</ButtonAdd>
+          <ButtonAdd onClick={clickHandler}>ADD +</ButtonAdd>
         </PriceButtonWrapper>
       </ContentWrapper>
     </CardWrapper>

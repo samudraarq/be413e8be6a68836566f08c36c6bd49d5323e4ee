@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import AddToCardModal from "./components/AddToCardModal/AddToCardModal";
+import CartContextProvider from "./components/Context/CartContext";
 import LunchDinner from "./components/LunchDinnerSelect/LunchDinner";
 import MenuCards from "./components/MenuCards/MenuCards";
 import TopBar from "./components/TopBar/TopBar";
@@ -14,12 +15,14 @@ const MobileSize = styled.div`
 
 function App() {
   return (
-    <MobileSize>
-      <TopBar />
-      <LunchDinner />
-      <MenuCards />
-      <AddToCardModal />
-    </MobileSize>
+    <CartContextProvider>
+      <MobileSize>
+        <TopBar />
+        <LunchDinner />
+        <MenuCards />
+        <AddToCardModal />
+      </MobileSize>
+    </CartContextProvider>
   );
 }
 

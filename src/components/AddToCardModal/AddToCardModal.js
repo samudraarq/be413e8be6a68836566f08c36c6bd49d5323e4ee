@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import { useContext } from "react";
+import { CartContext } from "../Context/CartContext";
 
 const Wrapper = styled.div`
   position: fixed;
@@ -42,11 +44,15 @@ const IconWrapper = styled.div`
 `;
 
 const AddToCardModal = () => {
+  const { cartAmount, totalPrice } = useContext(CartContext);
+
   return (
     <Wrapper>
       <ModalWrapper>
         <div>
-          <ItemPrice>5 Items | Rp 125000</ItemPrice>
+          <ItemPrice>
+            {cartAmount} Items | Rp {totalPrice}
+          </ItemPrice>
           <DeliveryPrice>Termasuk ongkos kirim</DeliveryPrice>
         </div>
         <IconWrapper>
