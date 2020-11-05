@@ -44,6 +44,7 @@ const DateItemsWrapper = styled.div`
   height: 4rem;
   width: 4rem;
   border-radius: 50%;
+  cursor: pointer;
 `;
 
 const DateItem = styled.p`
@@ -63,7 +64,7 @@ const DatePicker = () => {
     const _dayFormat = "E";
     const _dateFormat = "dd";
     const _verticalListItems = [];
-    const _startDay = subDays(currentWeek, 1);
+    const _startDay = subDays(currentWeek, 0);
 
     for (let i = 0; i < enableDays; i++) {
       let _day = format(addDays(_startDay, i), _dayFormat, { locale: id });

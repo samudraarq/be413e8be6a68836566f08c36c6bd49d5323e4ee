@@ -11,7 +11,6 @@ const MobileSize = styled.div`
   max-width: 37.5rem;
   margin: auto;
   background: #f1f1f2;
-  height: 100vh;
   /* overflow: hidden; */
 `;
 

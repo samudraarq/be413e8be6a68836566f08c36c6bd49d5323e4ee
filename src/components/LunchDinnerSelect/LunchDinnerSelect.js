@@ -25,6 +25,7 @@ const RadioBtnLabel = styled.label`
   font-size: 1.2rem;
   text-align: center;
   padding: 0.8rem 0;
+  cursor: pointer;
 
   &:first-of-type {
     border-radius: 0.4rem 0 0 0.4rem;

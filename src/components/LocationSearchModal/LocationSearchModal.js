@@ -42,6 +42,7 @@ const CloseIconWrapper = styled.div`
     font-size: 4rem;
     display: block;
     margin-left: auto;
+    cursor: pointer;
   }
 `;
 

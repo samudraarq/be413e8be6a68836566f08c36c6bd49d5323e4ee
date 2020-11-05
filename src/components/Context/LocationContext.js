@@ -4,7 +4,7 @@ export const LocationContext = createContext();
 
 const LocationContextProvider = ({ children }) => {
   const [inputText, setInputText] = useState("");
-  const [modalOpen, setModalOpen] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
 
   let data = [];
 

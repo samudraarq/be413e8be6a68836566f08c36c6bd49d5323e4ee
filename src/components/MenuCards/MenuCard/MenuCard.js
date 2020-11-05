@@ -55,7 +55,8 @@ const PriceButtonWrapper = styled.div`
 `;
 
 const CardPrice = styled.p`
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 700;
 `;
 
 const ButtonAdd = styled.button`
