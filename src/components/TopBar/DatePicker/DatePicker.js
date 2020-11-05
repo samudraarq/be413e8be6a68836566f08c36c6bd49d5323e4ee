@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { subDays, format, addDays, isSameDay, isWeekend } from "date-fns";
+import { id } from "date-fns/locale";
 import { useState } from "react";
 
 const Wrapper = styled.div`
@@ -54,8 +55,8 @@ const DatePicker = () => {
     const _startDay = subDays(currentWeek, 1);
 
     for (let i = 0; i < enableDays; i++) {
-      let _day = format(addDays(_startDay, i), _dayFormat);
-      let _date = format(addDays(_startDay, i), _dateFormat);
+      let _day = format(addDays(_startDay, i), _dayFormat, { locale: id });
+      let _date = format(addDays(_startDay, i), _dateFormat, { locale: id });
 
       _verticalListItems.push(
         isWeekend(addDays(_startDay, i)) ? (
