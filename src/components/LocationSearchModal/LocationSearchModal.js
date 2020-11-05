@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import CloseIcon from "@material-ui/icons/Close";
 import LocationInput from "./LocationInput/LocationInput";
+import SearchResult from "./SearchResult/SearchResult";
 
 const Wrapper = styled.div`
   position: fixed;
@@ -38,6 +39,10 @@ const Title = styled.p`
   margin-top: 1.6rem;
 `;
 
+const SearchResultWrapper = styled.div`
+  margin-top: 2.4rem;
+`;
+
 export const LocationSearchModal = () => {
   return (
     <Wrapper>
@@ -47,6 +52,9 @@ export const LocationSearchModal = () => {
         </CloseIconWrapper>
         <Title>Cek makanan yang tersedia di lokasi kamu!</Title>
         <LocationInput />
+        <SearchResultWrapper>
+          <SearchResult />
+        </SearchResultWrapper>
       </ModalWrapper>
     </Wrapper>
   );
