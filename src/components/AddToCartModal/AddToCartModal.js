@@ -11,6 +11,8 @@ const Wrapper = styled.div`
   left: 0;
   right: 0;
   z-index: 5;
+  transform: ${(props) => (props.show ? "translateY(0)" : "translateY(100%)")};
+  transition: all 0.5s ease;
   background: linear-gradient(
     rgba(255, 255, 255, 0) 0%,
     rgba(255, 255, 255, 0) 50%,
@@ -43,7 +45,7 @@ const IconWrapper = styled.div`
   }
 `;
 
-const AddToCardModal = () => {
+const AddToCartModal = () => {
   const { cartAmount, totalPrice } = useContext(CartContext);
 
   const renderCartAmount = () => {
@@ -63,7 +65,7 @@ const AddToCardModal = () => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper show={cartAmount >= 1}>
       <ModalWrapper>
         <div>
           {renderCartAmount()}
@@ -78,4 +80,4 @@ const AddToCardModal = () => {
   );
 };
 
-export default AddToCardModal;
+export default AddToCartModal;

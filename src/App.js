@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import AddToCardModal from "./components/AddToCardModal/AddToCardModal";
+import AddToCartModal from "./components/AddToCartModal/AddToCartModal";
 import CartContextProvider from "./components/Context/CartContext";
 import LunchDinner from "./components/LunchDinnerSelect/LunchDinner";
 import MenuCards from "./components/MenuCards/MenuCards";
@@ -20,7 +20,7 @@ function App() {
         <TopBar />
         <LunchDinner />
         <MenuCards />
-        <AddToCardModal />
+        <AddToCartModal />
       </MobileSize>
     </CartContextProvider>
   );
