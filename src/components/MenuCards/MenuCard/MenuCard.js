@@ -1,9 +1,8 @@
 import { useContext } from "react";
 import styled from "styled-components";
+import ReactStars from "react-stars";
 
 import { CartContext } from "../../Context/CartContext";
-
-import { Rating } from "@material-ui/lab";
 
 const CardWrapper = styled.div`
   border-radius: 0.8rem;
@@ -29,11 +28,6 @@ const RatingWrapper = styled.div`
 
   & p {
     margin-right: 0.4rem;
-  }
-
-  & span {
-    font-size: 1rem;
-    color: #f9423a;
   }
 `;
 
@@ -85,7 +79,12 @@ const MenuCard = ({ menu }) => {
       <ContentWrapper>
         <RatingWrapper>
           <p>{menu.rating}</p>
-          <Rating defaultValue={menu.rating} precision={0.1} readOnly />
+          <ReactStars
+            value={menu.rating}
+            color2="#f9423a"
+            size="1rem"
+            edit="false"
+          />
         </RatingWrapper>
         <CardTitle>{menu.title}</CardTitle>
         <CardSubtitle>by Kulina &bull; Uptown Kitchen</CardSubtitle>
