@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   padding: 0.8rem 0;
 `;
 
-const RadioBtn = styled.input`
+export const RadioBtn = styled.input`
   display: none;
 
   &:checked + label {
