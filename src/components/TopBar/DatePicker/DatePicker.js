@@ -32,7 +32,7 @@ const DateWrapper = styled.div`
   }
 `;
 
-const DateItemsWrapper = styled.div`
+export const DateItemsWrapper = styled.div`
   display: flex;
   scroll-snap-align: center;
   flex-direction: column;
